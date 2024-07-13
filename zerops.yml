@@ -3,7 +3,7 @@ zerops:
     build:
       os: alpine
       base: go@1
-      envVariable:
+      envVariables:
         MIX_ENV: prod
       prepareCommands:
         - apk update
