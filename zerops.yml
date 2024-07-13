@@ -2,6 +2,7 @@ zerops:
   - setup: app
     build:
       os: alpine
+      base: go@1
       envVariable:
         MIX_ENV: prod
       prepareCommands:
@@ -17,6 +18,7 @@ zerops:
         - _build/prod/rel/app/~
     run:
       os: alpine
+      base: go@1      
       prepareCommands:
         - apk update
         - apk add libstdc++
