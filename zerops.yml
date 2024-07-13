@@ -18,10 +18,7 @@ zerops:
         - _build/prod/rel/app/~
     run:
       os: alpine
-      base: go@1      
-      prepareCommands:
-        - apk update
-        - apk add libstdc++
+      base: go@1
       ports:
         - port: 4000
           httpSupport: true
