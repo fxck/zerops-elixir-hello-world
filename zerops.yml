@@ -1,0 +1,26 @@
+zerops:
+  - setup: app
+    build:
+      os: alpine
+      envVariable:
+        MIX_ENV: prod
+      prepareCommands:
+        - apk update
+        - apk add erlang elixir
+        - mix local.hex --force
+        - mix local.rebar --force
+      buildCommands:
+        - mix deps.get
+        - mix compile
+        - mix release
+      deployFiles:
+        - _build/prod/rel/app/~
+    run:
+      os: alpine
+      prepareCommands:
+        - apk update
+        - apk add libstdc++
+      ports:
+        - port: 4000
+          httpSupport: true
+      start: bin/app start
